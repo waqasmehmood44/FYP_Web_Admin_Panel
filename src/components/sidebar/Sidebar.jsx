@@ -36,7 +36,7 @@ const Sidebar = () => {
                 <Link to="/request" style={{textDecoration: "none" ,color:"gray"}}> 
                 <li>
                     <PendingActionsIcon/>
-                    <span>Approval Requests</span>
+                    <span>Requests</span>
                 </li>
                 </Link>
                 <Link to="/approved_stations" style={{textDecoration: "none" ,color:"gray"}}>   
