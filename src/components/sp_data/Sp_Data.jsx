@@ -28,10 +28,15 @@ const Sp_Data = () => {
     },[])
 
     const handleDelete = (id) => {
-    
+
+      if(window.confirm('Are you sure you want to delete this service provider?')){
         setsp_data(sp_data.filter((item) => item.id !== id));
         firebase.database().ref().child('Users').child("Service Provider").child("Personal Info").child(id).remove()
         window.location.href='/service_provider'
+      }
+
+
+        
   
       };
        const handleVeiw=(id)=>{

@@ -34,24 +34,30 @@ import firebase from "../../util/firebasee";
            },[])
            console.log(data)
         const handleReject = (id) => {
+          if(window.confirm('Are you sure you want to Reject this Request?')){
+
             setData(data.filter((item) => item.id !== id));
             firebase.database().ref().child('Users').child("Service Provider").child("Service Station").child(id).remove()
             window.location.href='/request'
-      
+          }
+
           };
            const handleAccept=(id,name,phone_no,lat,lng,ss_img,address)=>{
-            const ref=firebase.database().ref().child('Users').child("Service Provider").child("Approved Service Stations").child(id);
-            ref.set({
-              address: address,
-              lat: lat,
-              lng : lng,
-              name : name,
-              phone_no : phone_no,
-              service_station_id : id,
-              ss_img : ss_img
-            });
-            firebase.database().ref().child('Users').child("Service Provider").child("Service Station").child(id).remove()
-            window.location.href='/request'
+            if(window.confirm('Are you sure you want to Accept this Request?')){
+              const ref=firebase.database().ref().child('Users').child("Service Provider").child("Approved Service Stations").child(id);
+              ref.set({
+                address: address,
+                lat: lat,
+                lng : lng,
+                name : name,
+                phone_no : phone_no,
+                service_station_id : id,
+                ss_img : ss_img
+              });
+              firebase.database().ref().child('Users').child("Service Provider").child("Service Station").child(id).remove()
+              window.location.href='/request'
+            }
+            
             }
             const handleView =(id)=>{
                 localStorage.setItem('req_id',id)

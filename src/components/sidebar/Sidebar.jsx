@@ -7,7 +7,17 @@ import GppGoodIcon from '@mui/icons-material/GppGood';
 import PendingActionsIcon from '@mui/icons-material/PendingActions';
 import {Link} from "react-router-dom"
 import { color } from "@mui/system";
+const logout = () => {
 
+    if(window.confirm('Are you sure you want to Logout?')){
+        window.location.href='/'
+
+    }
+
+
+      
+
+    };
 const Sidebar = () => {
   return (
     <div className='sidebar'>
@@ -45,12 +55,14 @@ const Sidebar = () => {
                     <span>Approved Stations</span>
                 </li>
                 </Link>
-                <Link to="/" style={{textDecoration: "none" ,color:"gray"}}> 
+                {/* <Link to="/" style={{textDecoration: "none" ,color:"gray"}}>  */}
                 <li>
                     <LogoutOutlinedIcon/>
-                    <span>Logout</span>
+                    <span onClick={() => logout()}>Logout</span>
+                    
+
                 </li>
-                </Link>
+                {/* </Link> */}
             </ul>
         </div>
         <div className="bottom"></div>

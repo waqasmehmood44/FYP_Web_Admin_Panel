@@ -32,9 +32,14 @@ const Approved_Stations = () => {
    
        },[])
        const handleDelete = (id) => {
-        setData(data.filter((item) => item.id !== id));
-        firebase.database().ref().child('Users').child("Service Provider").child("Approved Service Stations").child(id).remove()
-        window.location.href='/approved_stations'
+        if(window.confirm('Are you sure you want to delete this Service Station?')){
+          setData(data.filter((item) => item.id !== id));
+          firebase.database().ref().child('Users').child("Service Provider").child("Approved Service Stations").child(id).remove()
+          window.location.href='/approved_stations'
+        }
+
+        
+    
   
       };
     const actionColumn = [

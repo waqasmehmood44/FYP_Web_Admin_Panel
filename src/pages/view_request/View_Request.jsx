@@ -69,9 +69,12 @@ const View_Request = () => {
         localStorage.setItem('price_44', "Not Available")
 
       } else {
-        localStorage.setItem('service_44',localStorage.getItem('service_4'))
-        localStorage.setItem('price_44',localStorage.getItem('price_4'))
+        localStorage.setItem('service_44',localStorage.getItem('service_3'))
+        localStorage.setItem('price_44',localStorage.getItem('price_3'))
       }
+
+
+
 
 
     }, []);
@@ -138,7 +141,7 @@ const View_Request = () => {
               </div>
               <div className="detailItem">
                 <span className="itemKey">Car Polish: </span>
-                <span className="itemValue">{localStorage.getItem('price_4')}</span>
+                <span className="itemValue">{localStorage.getItem('price_44')}</span>
               </div>
             </div>
           </div>

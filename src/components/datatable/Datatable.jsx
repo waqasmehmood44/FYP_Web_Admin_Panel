@@ -35,9 +35,12 @@ const Datatable = () => {
     },[])
     // Handle Delete Button
      const handleDelete = (id) => {
-      setData(data.filter((item) => item.id !== id));
+      if(window.confirm('Are you sure you want to delete this user?')){
+        setData(data.filter((item) => item.id !== id));
       firebase.database().ref().child('Users').child("Customer").child("Personal Info").child(id).remove()
-      window.location.href='/'
+      window.location.href='/dashboard'
+      }
+      
 
     };
      // Handle View Button
